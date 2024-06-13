@@ -1,5 +1,5 @@
 <script>
-import YugiCards from './YugiCards.vue'
+import YugiCards from './YugiCards.vue';
 import axios from 'axios';
 export default{
     components:{
@@ -8,12 +8,11 @@ export default{
     data(){
         return{
             yugiCardsList: [],
-            yugiCardsListImg:[],
         }
     },
     methods:{
         getYugiCards(){
-            axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
+            axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0&archetype=Alien')
             .then((response) => {
                 console.log(response.data.data);
                 this.yugiCardsList = response.data.data;
@@ -59,7 +58,6 @@ div.container{
 }
 
 div.cardContainer{
-    height: 89.1vh;
     background-color: white;
     width: 80%;
 }
